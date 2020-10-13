@@ -1,5 +1,5 @@
 
- <h1><a href="https://hub.docker.com/r/jonatasrafael/fullcycle-devops-challenge-01imagelaravel">Imagem gerada no Docker hub: https://hub.docker.com/r/jonatasrafael/fullcycle-devops-challenge-01imagelaravel</a></h1>
+ <h1><a target="_blank" href="https://hub.docker.com/r/jonatasrafael/fullcycle-devops-challenge-01imagelaravel">Imagem gerada no Docker hub: https://hub.docker.com/r/jonatasrafael/fullcycle-devops-challenge-01imagelaravel</a></h1>
  
 <br />
 <br />

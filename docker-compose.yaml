@@ -16,7 +16,7 @@ services:
 
   nginx:
     build: .docker/nginx
-    entrypoint: dockerize -template ./.docker/nginx/nginx.tmpl:/etc/nginx/nginx.conf nginx
+    entrypoint: dockerize -template /var/www/.docker/nginx/nginx.tmpl:/etc/nginx/conf.d/nginx.conf nginx -g 'daemon off;'
     container_name: nginx
     restart: always
     tty: true

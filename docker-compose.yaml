@@ -5,12 +5,9 @@ services:
   app:
     build: .
     container_name: app
-    entrypoint: dockerize -template ./.docker/app/nginx.tmpl:./.docker/nginx/nginx.conf -wait tcp://db:3306 -timeout 60s ./.docker/entrypoint.sh
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 60s ./.docker/entrypoint.sh
     volumes:
       - .:/var/www
-    environment:
-      - NGINX_HOST=app
-      - NGINX_PORT=9000
     networks:
       - app-network
     depends_on:
@@ -19,13 +16,17 @@ services:
 
   nginx:
     build: .docker/nginx
+    entrypoint: dockerize -template ./.docker/nginx/nginx.tmpl:/etc/nginx/nginx.conf nginx
     container_name: nginx
     restart: always
     tty: true
+    environment:
+      - NGINX_HOST=app
+      - NGINX_PORT=9000
     ports:
       - "8000:80"
     volumes:
-      - ./public:/var/www/public
+      - .:/var/www
     networks:
       - app-network
     depends_on:
